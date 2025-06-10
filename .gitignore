@@ -31,5 +31,5 @@ logs/
 .DS_Store
 Thumbs.db
 
-#My files
-index.rst
+#My folder and files
+doc/
