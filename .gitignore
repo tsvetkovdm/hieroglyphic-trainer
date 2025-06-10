@@ -1,0 +1,32 @@
+# Virtual Environment
+venv/
+env/
+.virtualenv/
+
+# Python compiled files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+
+# DB files
+*.sqlite3
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
