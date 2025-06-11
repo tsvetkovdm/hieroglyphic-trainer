@@ -11,8 +11,8 @@ def test_connection():
     message = ""
     try:
         con = psycopg.connect(host=app.config['DB_SERVER'],
-                              user=app.connect['DB_USER'],
-                              password=app.connect['DB_PASSWORD'],
+                              user=app.config['DB_USER'],
+                              password=app.config['DB_PASSWORD'],
                               dbname=app.config['DB_NAME'])
     except Exception as e:
         message = f"Ошибка подключения: {e}"
