@@ -1,0 +1,3 @@
+@echo off
+echo Starting server Flask...
+.\venv\Scripts\python.exe -m flask --app hieroglyphic-trainer:app run --debug
