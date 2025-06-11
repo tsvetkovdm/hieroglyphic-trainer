@@ -32,7 +32,15 @@ def get_num_quan_group():
                          password=app.config['DB_PASSWORD'],
                          dbname=app.config['DB_NAME']) as con:
         cur=con.cursor()
-        rad_symbols = cur.execute(f'SELECT lo.symbol, lo.pinyin, lo.meaning, rg.name, rg.slug FROM "learning_object" AS lo INNER JOIN "radical_group" AS rg ON rg.id = lo.group_id WHERE rg.slug LIKE %s', 
+        rad_symbols = cur.execute('''SELECT 
+                                  lo.symbol, 
+                                  lo.pinyin, 
+                                  lo.meaning, 
+                                  rg.name, 
+                                  rg.slug 
+                                  FROM "learning_object" AS lo 
+                                  INNER JOIN "radical_group" AS rg ON rg.id = lo.group_id 
+                                  WHERE rg.slug LIKE %s''', 
                                   (rad_group,)).fetchall()
         return render_template('radicals.html', title='Радикалы группы "Числа и количество"',
                                rad_symbols=rad_symbols)
