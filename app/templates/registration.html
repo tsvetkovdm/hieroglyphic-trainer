@@ -2,17 +2,20 @@
 {% from 'bootstrap5/form.html' import render_field %}
 
 {% block content %}
-    <h2>{{title}}</h2>
-    <form method="POST" action="">
-        {{form.hidden_tag()}}
-        {{ render_field(form.username, class="form-control from-control-lg") }}
-        {{ render_field(form.email, placeholder="name@example.com") }}
-        {{ render_field(form.password) }}
-        {{ render_field(form.confirm) }}
-        {{ render_field(form.first_name) }}
-        {{ render_field(form.last_name) }}
-        {{ render_field(form.date_of_birth) }}
-        {{ render_field(form.want_spam) }}
-        {{form.submit}}
-    </form>
+    <div class="container mt-4">
+        <h2>{{title}}</h2>
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            {{ render_field(form.username, class="form-control from-control-lg") }}
+            {{ render_field(form.email, placeholder="name@example.com") }}
+            {{ render_field(form.password) }}
+            {{ render_field(form.confirm) }}
+            {{ render_field(form.first_name) }}
+            {{ render_field(form.last_name) }}
+            {{ render_field(form.date_of_birth) }}
+            {{ render_field(form.want_spam) }}
+            {{form.submit}}
+        </form>
+    </div>
+    
 {% endblock %}

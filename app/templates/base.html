@@ -2,31 +2,48 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {% block styles %}
-            {{ bootstrap.load_css() }}
-        {% endblock %}
-        {% if title %}
-            <title>{{ title }}</title>
-        {% else %}
-            <title>Добро пожаловать</title>
-        {% endif %}
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="navbar-nav">
-                    {{ render_nav_item('index', 'Главная') }}
-                    {{ render_nav_item('test_connection', 'Проверка БД') }}
-                    {{ render_nav_item('get_num_quan_group', 'Радикалы группы ЦиК') }}
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+    <title>{{ title if title else 'Добро пожаловать' }}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">{{ render_nav_item('index', 'Главная') }}</li>
+                <li class="nav-item">{{ render_nav_item('test_connection', 'Проверка БД') }}</li>
+                <li class="nav-item">{{ render_nav_item('get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item">{{ render_nav_item('logout', 'Выход') }}</li>
+                {% else %}
+                    <li class="nav-item">{{ render_nav_item('register', 'Регистрация') }}</li>
+                    <li class="nav-item">{{ render_nav_item('login', 'Авторизация') }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+                    </div>
+                {% endfor %}
             </div>
-        </nav>
-        {% block content %}{% endblock %}
-        {% block scripts %}
-            {{ bootstrap.load_js() }}
-        {% endblock %}
-    </body>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    {% block scripts %}
+        {{ bootstrap.load_js() }}
+    {% endblock %}
+</body>
 </html>

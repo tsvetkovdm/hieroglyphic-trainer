@@ -1,31 +1,33 @@
 {% extends "base.html"%}
 
 {% block content %}
-    <h2>{{ title }}</h2>
-    {% if rad_symbols|length == 0 %}
-        <p>Радикалов не найдено.</p>
-    {% else %}
-        <table>
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Символ</th>
-                    <th>Пиньинь</th>
-                    <th>Значение</th>
-                    <th>Название группы</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for rad_symbol in rad_symbols %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ rad_symbol[0] }}</td>
-                    <td>{{ rad_symbol[1] }}</td>
-                    <td>{{ rad_symbol[2] }}</td>
-                    <td>{{ rad_symbol[3] }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    {% endif %}
+    <div class="container mt-2">
+        <h2>{{ title }}</h2>
+        {% if rad_symbols|length == 0 %}
+            <p>Радикалов не найдено.</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Символ</th>
+                        <th>Пиньинь</th>
+                        <th>Значение</th>
+                        <th>Название группы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for rad_symbol in rad_symbols %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ rad_symbol[0] }}</td>
+                        <td>{{ rad_symbol[1] }}</td>
+                        <td>{{ rad_symbol[2] }}</td>
+                        <td>{{ rad_symbol[3] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
 {% endblock %}

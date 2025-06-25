@@ -1,5 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, DateField, IntegerField, PasswordField, SubmitField, validators
+from wtforms import BooleanField, StringField, DateField, PasswordField, SubmitField, ValidationError, validators
+from datetime import date
+
+def validate_birth(form, field):
+    if field.data > date.today():
+        raise ValidationError("Дата рождения не может быть в будущем")
 
 class RegistrationForm(FlaskForm):
     username = StringField('Имя пользователя', [validators.Length(min=4, max=25)])
@@ -10,9 +15,15 @@ class RegistrationForm(FlaskForm):
     confirm = PasswordField('Повторить пароль')
     first_name = StringField('Имя', [validators.Length(min=1, max=100)])
     last_name = StringField('Фамилия', [validators.Length(min=1, max=100)])
-    date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired()])
+    date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired(), validate_birth])
     want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку', [validators.InputRequired()])
     submit = SubmitField('Зарегистрироваться')
+
+class LoginForm(FlaskForm):
+    username = StringField('Логин', [validators.InputRequired()])
+    password = PasswordField('Пароль', [validators.InputRequired()])
+    remember_me = BooleanField('Запомнить меня')
+    submit = SubmitField('Войти')
 
 class EditUserFrom(FlaskForm):
     email = StringField('E-mail', [validators.Length(min=6, max=100), validators.Email()])
