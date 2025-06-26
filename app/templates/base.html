@@ -18,6 +18,7 @@
                 <li class="nav-item">{{ render_nav_item('test_connection', 'Проверка БД') }}</li>
                 <li class="nav-item">{{ render_nav_item('get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
                 {% if current_user.is_authenticated %}
+                    <li class="nav-item">{{ render_nav_item('profile', 'Профиль') }}</li>
                     <li class="nav-item">{{ render_nav_item('logout', 'Выход') }}</li>
                 {% else %}
                     <li class="nav-item">{{ render_nav_item('register', 'Регистрация') }}</li>

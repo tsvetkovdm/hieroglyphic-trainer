@@ -39,6 +39,7 @@ CREATE TABLE "user" (
 	"last_name" VARCHAR(100) NOT NULL,
 	"email" VARCHAR(100) NOT NULL,
 	"date_of_birth" DATE,
+	"want_spam" BOOLEAN DEFAULT FALSE,
 	"role_id" INT NOT NULL REFERENCES "role" ("id")
 	
 );

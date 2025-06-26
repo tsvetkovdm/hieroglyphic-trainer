@@ -16,7 +16,7 @@ class RegistrationForm(FlaskForm):
     first_name = StringField('Имя', [validators.Length(min=1, max=100)])
     last_name = StringField('Фамилия', [validators.Length(min=1, max=100)])
     date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired(), validate_birth])
-    want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку', [validators.InputRequired()])
+    want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку')
     submit = SubmitField('Зарегистрироваться')
 
 class LoginForm(FlaskForm):
@@ -25,10 +25,10 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
 
-class EditUserFrom(FlaskForm):
+class EditUserForm(FlaskForm):
     email = StringField('E-mail', [validators.Length(min=6, max=100), validators.Email()])
     first_name = StringField('Имя', [validators.Length(min=1, max=100)])
     last_name = StringField('Фамилия', [validators.Length(min=1, max=100)])
     date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired()])
-    want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку', [validators.InputRequired()])
+    want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку')
     submit = SubmitField('Сохранить')
