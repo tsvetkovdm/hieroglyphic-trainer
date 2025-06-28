@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, DateField, PasswordField, SubmitField, ValidationError, validators
+from wtforms import BooleanField, StringField, DateField, PasswordField, SelectField, SubmitField, ValidationError, validators
 from datetime import date
 
 def validate_birth(form, field):
@@ -31,4 +31,5 @@ class EditUserForm(FlaskForm):
     last_name = StringField('Фамилия', [validators.Length(min=1, max=100)])
     date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired()])
     want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку')
+    role_id = SelectField('Роль', coerce=int)
     submit = SubmitField('Сохранить')
