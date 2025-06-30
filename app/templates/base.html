@@ -14,18 +14,18 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <ul class="navbar-nav">
-                <li class="nav-item">{{ render_nav_item('index', 'Главная') }}</li>
-                <li class="nav-item">{{ render_nav_item('test_connection', 'Проверка БД') }}</li>
-                <li class="nav-item">{{ render_nav_item('get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
+                <li class="nav-item">{{ render_nav_item('main.index', 'Главная') }}</li>
+                <li class="nav-item">{{ render_nav_item('main.test_connection', 'Проверка БД') }}</li>
+                <li class="nav-item">{{ render_nav_item('main.get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
                 {% if current_user.is_authenticated %}
                     {% if current_user.is_admin %}
-                        <li class="nav-item">{{ render_nav_item('admin_dashboard', 'Админ') }}</li>
+                        <li class="nav-item">{{ render_nav_item('admin.admin_dashboard', 'Админ') }}</li>
                     {% endif %}
-                    <li class="nav-item">{{ render_nav_item('profile', 'Профиль') }}</li>
-                    <li class="nav-item">{{ render_nav_item('logout', 'Выход') }}</li>
+                    <li class="nav-item">{{ render_nav_item('auth.profile', 'Профиль') }}</li>
+                    <li class="nav-item">{{ render_nav_item('auth.logout', 'Выход') }}</li>
                 {% else %}
-                    <li class="nav-item">{{ render_nav_item('register', 'Регистрация') }}</li>
-                    <li class="nav-item">{{ render_nav_item('login', 'Авторизация') }}</li>
+                    <li class="nav-item">{{ render_nav_item('auth.register', 'Регистрация') }}</li>
+                    <li class="nav-item">{{ render_nav_item('auth.login', 'Авторизация') }}</li>
                 {% endif %}
             </ul>
         </div>

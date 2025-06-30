@@ -5,10 +5,10 @@
         <h2>Добро пожаловать, {{ current_user.username }}!</h2>
         <p>Вы вошли в систему. Здесь может быть ваш персональный кабинет или функции.</p>
         <!-- Пример дополнительного функционала -->
-        <a class="btn btn-primary" href="{{ url_for('logout') }}">Выйти</a>
+        <a class="btn btn-primary" href="{{ url_for('auth.logout') }}">Выйти</a>
     {% else %}
         <h2>Добро пожаловать!</h2>
-        <p>Пожалуйста, <a href="{{ url_for('login') }}">войдите</a> или <a href="{{ url_for('register') }}">зарегистрируйтесь</a>, чтобы продолжить.</p>
+        <p>Пожалуйста, <a href="{{ url_for('auth.login') }}">войдите</a> или <a href="{{ url_for('auth.register') }}">зарегистрируйтесь</a>, чтобы продолжить.</p>
     {% endif %}
 </div>
 {% endblock %}
