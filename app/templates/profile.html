@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Редактировать профиль</h2>
+    <h2>{{title}}</h2>
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         {{ render_field(form.email) }}
@@ -11,6 +11,9 @@
         {{ render_field(form.last_name) }}
         {{ render_field(form.date_of_birth) }}
         {{ render_field(form.want_spam) }}
+        {% if show_role %}
+            {{ render_field(form.role_id) }}
+        {% endif %}
         {{ form.submit(class="btn btn-primary") }}
     </form>
 </div>

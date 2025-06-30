@@ -49,18 +49,18 @@ def admin_edit_user(user_id):
 
         if request.method == 'GET':
             cur.execute('''
-                        SELECT email, first_name, last_name, date_of_birth, want_spam, role_id
+                        SELECT username, email, first_name, last_name, date_of_birth, want_spam, role_id
                         FROM "user" 
                         WHERE id = %s
                         ''', (user_id,))
             user_data = cur.fetchone()
             if user_data:
-                form.email.data = user_data[0]
-                form.first_name.data = user_data[1]
-                form.last_name.data = user_data[2]
-                form.date_of_birth.data = user_data[3]
-                form.want_spam.data = user_data[4]
-                form.role_id.data = user_data[5]
+                form.email.data = user_data[1]
+                form.first_name.data = user_data[2]
+                form.last_name.data = user_data[3]
+                form.date_of_birth.data = user_data[4]
+                form.want_spam.data = user_data[5]
+                form.role_id.data = user_data[6]
 
         elif form.validate_on_submit():
             cur.execute('''
@@ -79,7 +79,7 @@ def admin_edit_user(user_id):
             flash('Пользователь обновлён', 'success')
             return redirect(url_for('admin_dashboard'))
 
-    return render_template('admin/edit_user.html', form=form)
+    return render_template('profile.html', form=form, title=f'Редактировать профиль {user_data[0]}', show_role = True)
 
 @app.route('/admin/user/delete/<int:user_id>', methods=['POST'])
 @admin_required
@@ -113,14 +113,14 @@ def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     
-    reg_form = RegistrationForm()
-    if reg_form.validate_on_submit():
-        username = reg_form.username.data
-        email = reg_form.email.data
-        password = reg_form.password.data
-        first_name = reg_form.first_name.data
-        last_name = reg_form.last_name.data
-        date_of_birth = reg_form.date_of_birth.data
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        date_of_birth = form.date_of_birth.data
 
         password_hash = generate_password_hash(password)
 
@@ -145,31 +145,31 @@ def register():
                          date_of_birth, 
                          DEFAULT_ROLE_ID))
             
-            flash (f'Регистрация {reg_form.username.data} успешна', 'success')
+            flash (f'Регистрация {form.username.data} успешна', 'success')
             return redirect(url_for('login'))
         
-    return render_template('registration.html', title='Регистрация', form=reg_form)
+    return render_template('registration.html', title='Регистрация', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    login_form = LoginForm()
-    if login_form.validate_on_submit():
+    form = LoginForm()
+    if form.validate_on_submit():
         with get_connection() as conn:
             cur = conn.cursor()
             cur.execute('''
                         SELECT id, username, password, email, first_name, last_name, date_of_birth, want_spam, role_id
                         FROM "user" 
                         WHERE username = %s
-                        ''', (login_form.username.data,))
+                        ''', (form.username.data,))
             result = cur.fetchone()
 
-        if result is None or not check_password_hash(result[2], login_form.password.data):
+        if result is None or not check_password_hash(result[2], form.password.data):
             flash('Попытка входа неудачна или пользователя не существует(', 'danger')
             return redirect(url_for('login'))
         
         id, username, password, email, first_name, last_name, date_of_birth, want_spam, role_id = result
         user = User(id, username, password, email, first_name, last_name, date_of_birth, want_spam, role_id)
-        login_user(user, remember=login_form.remember_me.data)
+        login_user(user, remember=form.remember_me.data)
         flash(f'Вы успешно вошли в систему, {current_user.username}', 'success')
 
         next_page = request.args.get('next')
@@ -177,21 +177,21 @@ def login():
             next_page = url_for('index')
         return redirect(next_page)
     
-    return render_template('login.html', title='Вход', form=login_form)
+    return render_template('login.html', title='Вход', form=form)
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    profile_form = EditUserForm()
+    form = EditUserForm()
 
     if request.method == 'GET':
-        profile_form.email.data = current_user.email
-        profile_form.first_name.data = current_user.first_name
-        profile_form.last_name.data = current_user.last_name
-        profile_form.date_of_birth.data = current_user.date_of_birth
-        profile_form.want_spam.data = getattr(current_user, 'want_spam', False)
+        form.email.data = current_user.email
+        form.first_name.data = current_user.first_name
+        form.last_name.data = current_user.last_name
+        form.date_of_birth.data = current_user.date_of_birth
+        form.want_spam.data = getattr(current_user, 'want_spam', False)
     
-    if profile_form.validate_on_submit():
+    if form.validate_on_submit():
         with get_connection() as conn:
             cur = conn.cursor()
             cur.execute('''
@@ -199,15 +199,15 @@ def profile():
                         SET email=%s, first_name=%s, last_name=%s, date_of_birth=%s, want_spam=%s
                         WHERE id=%s
                         ''',
-                        (profile_form.email.data,
-                         profile_form.first_name.data,
-                         profile_form.last_name.data,
-                         profile_form.date_of_birth.data,
-                         profile_form.want_spam.data,
+                        (form.email.data,
+                         form.first_name.data,
+                         form.last_name.data,
+                         form.date_of_birth.data,
+                         form.want_spam.data,
                          current_user.id))
             flash('Профиль успешно изменен', 'success')
             return redirect(url_for('profile'))
-    return render_template('profile.html', form=profile_form)
+    return render_template('profile.html', form=form, title=f'Редактирование профиля {current_user.username}', show_role = False)
 
 @app.route('/logout')
 def logout():
