@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+{% block content %}
+<div class="container py-4">
+    <h2>{{ title }}</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.username) }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.password) }}
+        {{ render_field(form.first_name) }}
+        {{ render_field(form.last_name) }}
+        {{ render_field(form.date_of_birth) }}
+        {{ render_field(form.want_spam) }}
+        {{ render_field(form.role_id) }}
+        {{ render_field(form.submit) }}
+    </form>
+</div>
+{% endblock %}
