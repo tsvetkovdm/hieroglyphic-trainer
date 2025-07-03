@@ -1,10 +1,8 @@
-
 from flask import Blueprint, render_template, redirect, flash, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.db import get_connection
 from app.forms import RegistrationForm, LoginForm, EditUserForm
-from app.routes import auth
 from app.user_model import User
 from urllib.parse import urlsplit
 
@@ -50,7 +48,7 @@ def register():
                          DEFAULT_ROLE_ID))
             
             flash (f'Регистрация {form.username.data} успешна', 'success')
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
         
     return render_template('auth/registration.html', title='Регистрация', form=form)
 
@@ -69,7 +67,7 @@ def login():
 
         if result is None or not check_password_hash(result[2], form.password.data):
             flash('Попытка входа неудачна или пользователя не существует(', 'danger')
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
         
         id, username, password, email, first_name, last_name, date_of_birth, want_spam, role_id = result
         user = User(id, username, password, email, first_name, last_name, date_of_birth, want_spam, role_id)
@@ -117,5 +115,5 @@ def profile():
                          form.want_spam.data,
                          current_user.id))
             flash('Профиль успешно изменен', 'success')
-            return redirect(url_for('profile'))
+            return redirect(url_for('auth.profile'))
     return render_template('profile.html', form=form, title=f'Редактирование профиля {current_user.username}', show_role = False)

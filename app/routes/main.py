@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, redirect, flash, url_for
 from flask_login import login_required
-from app.routes import main
 from app.db import get_connection
 
 main = Blueprint('main', __name__)
