@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Результат{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-3">Результат: {{ result_string }}</h2>
+
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Вопрос</th>
+        <th>Правильный ответ</th>
+        <th>Ваш ответ</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mode_id, symbol, meaning, pinyin, user_answer, is_correct in results %}
+        {% if mode_id == 1 %}
+          {% set question = symbol %}
+          {% set correct = meaning %}
+        {% elif mode_id == 2 %}
+          {% set question = pinyin %}
+          {% set correct = symbol %}
+        {% elif mode_id == 3 %}
+          {% set question = meaning %}
+          {% set correct = symbol %}
+        {% else %}
+          {% set question = symbol %}
+          {% set correct = meaning %}
+        {% endif %}
+
+        <tr class="{{ 'table-success' if is_correct else 'table-danger' }}">
+          <td>{{ loop.index }}</td>
+          <td>{{ question }}</td>
+          <td>{{ correct }}</td>
+          <td>{{ user_answer or '-' }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ url_for('training.history') }}" class="btn btn-outline-primary mt-3">
+    К истории тренировок
+  </a>
+</div>
+{% endblock %}

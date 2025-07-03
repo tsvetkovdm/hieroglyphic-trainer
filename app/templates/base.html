@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% block styles %}
         {{ bootstrap.load_css() }}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     {% endblock %}
     <title>{{ title if title else 'Добро пожаловать' }}</title>
 </head>
@@ -15,11 +16,13 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">{{ render_nav_item('main.index', 'Главная') }}</li>
-                <li class="nav-item">{{ render_nav_item('main.test_connection', 'Проверка БД') }}</li>
                 <li class="nav-item">{{ render_nav_item('main.get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
+                <li class="nav-item">{{ render_nav_item('training.start_training', 'Начать тренировку') }}</li>
                 {% if current_user.is_authenticated %}
+                    <li class="nav-item">{{ render_nav_item('training.history', 'История моих тренировок') }}</li>
                     {% if current_user.is_admin %}
-                        <li class="nav-item">{{ render_nav_item('admin.admin_dashboard', 'Админ') }}</li>
+                        <li class="nav-item">{{ render_nav_item('main.test_connection', 'Проверка БД') }}</li>
+                        <li class="nav-item">{{ render_nav_item('admin.dashboard', 'Админ') }}</li>
                     {% endif %}
                     <li class="nav-item">{{ render_nav_item('auth.profile', 'Профиль') }}</li>
                     <li class="nav-item">{{ render_nav_item('auth.logout', 'Выход') }}</li>
@@ -33,7 +36,7 @@
 
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            <div class="container mt-3">
+            <div class="container mt-4">
                 {% for category, message in messages %}
                     <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
                         {{ message }}

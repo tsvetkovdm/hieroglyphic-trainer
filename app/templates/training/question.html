@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Вопрос {{ index }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card shadow-sm p-4">
+    <h4 class="mb-3">Вопрос {{ index }} из {{ total }}</h4>
+    <div class="text-center mb-4">
+      {% if mode_id == 1 or mode_id == 4 %}
+        <div id="writer" style="width: 200px; height: 200px; margin-bottom: 20px;" class="display-1"></div>
+      {% else %}
+        <div class="display-1">{{ symbol }}</div>
+      {% endif %}
+    </div>
+
+    <form method="post">
+      <div class="mb-3">
+        <label for="answer" class="form-label">{{label}}</label>
+        <input type="text" name="answer" id="answer" class="form-control" required autofocus>
+      </div>
+      <button type="submit" class="btn btn-success">Ответить</button>
+    </form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/hanzi-writer.min.js') }}"></script>
+<script>
+  const writer = HanziWriter.create('writer', '{{ symbol }}', {
+    width: 200,
+    height: 200,
+    padding: 5,
+    showOutline: true,
+    showCharacter: false,
+    strokeAnimationSpeed: 1,
+    delayBetweenStrokes: 150,
+  });
+
+  writer.loopCharacterAnimation();
+</script>
+{% endblock %}

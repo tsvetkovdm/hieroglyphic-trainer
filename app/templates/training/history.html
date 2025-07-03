@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}История тренировок{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">История тренировок</h2>
+
+    {% if sessions %}
+        <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+            <th>#</th>
+            <th>Режим</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>Результат</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, started, ended, mode, result in sessions %}
+            <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ mode }}</td>
+            <td>{{ started }}</td>
+            <td>{{ ended or "-" }}</td>
+            <td>{{ result or "-" }}</td>
+            <td>
+                <a href="{{ url_for('training.training_result', session_id=id) }}" class="btn btn-sm btn-outline-primary">
+                Просмотр
+                </a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <p>Пока нет завершённых тренировок.</p>
+    {% endif %}
+</div>
+{% endblock %}
