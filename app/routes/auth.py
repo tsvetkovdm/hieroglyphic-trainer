@@ -88,6 +88,13 @@ def logout():
     flash('Вы вышли из системы', 'info')
     return redirect(url_for('main.index'))
 
+@auth.route('/change')
+@login_required
+def change():
+    logout_user()
+    flash('Вы вышли из системы', 'info')
+    return redirect(url_for('auth.login'))
+
 @auth.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
