@@ -21,10 +21,19 @@
           {% set correct = meaning %}
         {% elif mode_id == 2 %}
           {% set question = pinyin %}
-          {% set correct = symbol %}
+          {% set correct = meaning %}
         {% elif mode_id == 3 %}
           {% set question = meaning %}
           {% set correct = symbol %}
+        {% elif mode_id == 4 %}
+          {% set question = pinyin %}
+          {% set correct = symbol %}
+        {% elif mode_id == 5 %}
+          {% set question = meaning %}
+          {% set correct = pinyin %}
+        {% elif mode_id == 6 %}
+          {% set question = symbol %}
+          {% set correct = pinyin %}
         {% else %}
           {% set question = symbol %}
           {% set correct = meaning %}
@@ -39,9 +48,14 @@
       {% endfor %}
     </tbody>
   </table>
-
-  <a href="{{ url_for('training.history') }}" class="btn btn-outline-primary mt-3">
-    К истории тренировок
-  </a>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{{ url_for('training.history') }}" class="btn btn-outline-primary">
+      К истории тренировок
+    </a>
+    <a href="{{ url_for('training.start_training') }}" class="btn btn-primary">
+      Начать новую
+    </a>
+  </div>
+  
 </div>
 {% endblock %}

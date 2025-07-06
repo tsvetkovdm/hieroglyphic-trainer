@@ -2,17 +2,24 @@ import re
 from flask import Blueprint, render_template, redirect, request, url_for, flash
 from flask_login import login_required, current_user
 from app.db import get_connection
+import unicodedata
 
 training = Blueprint('training', __name__)
 
-def normalize(text):
-    return re.sub(r'\s+', ' ', text.strip().lower())
+def normalize(text, strip_tones=False):
+    text = unicodedata.normalize('NFKD', text)  # разбивает диакритики
+    if strip_tones:
+        text = ''.join(c for c in text if not unicodedata.combining(c))  # убирает тоны
+    text = text.lower().strip()
+    text = re.sub(r'\s+', ' ', text)
+    return text
 
+def is_answer_correct(user_answer, correct_value):
+    # Нормализуем без тонов для пиньиня
+    normalized_user = normalize(user_answer, strip_tones=True)
+    allowed = [normalize(part, strip_tones=True) for part in re.split(r'[;,/|]', correct_value)]
+    return normalized_user in allowed
 
-def is_answer_correct(user_answer, correct_meaning):
-    user_answer = normalize(user_answer)
-    allowed = [normalize(part) for part in re.split(r'[;,/]', correct_meaning)]
-    return user_answer in allowed
 
 @training.route('/start/', methods=['GET','POST'])
 @login_required
@@ -95,12 +102,24 @@ def training_question(session_id, index):
         label = "Введите значение:"
     elif mode_id == 2:
         prompt = pinyin
-        expected_answer = symbol
-        label = "Введите иероглиф:"
+        expected_answer = meaning
+        label = "Введите значение:"
     elif mode_id == 3:
         prompt = meaning
         expected_answer = symbol
         label = "Введите иероглиф:"
+    elif mode_id == 4:
+        prompt = pinyin
+        expected_answer = symbol
+        label = "Введите иероглиф:"
+    elif mode_id == 5:
+        prompt = meaning
+        expected_answer = pinyin
+        label = "Введите пиньинь:"
+    elif mode_id == 6:
+        prompt = symbol
+        expected_answer = pinyin
+        label = "Введите пиньинь:"
     else:
         prompt = symbol
         expected_answer = meaning
@@ -108,7 +127,6 @@ def training_question(session_id, index):
 
     if request.method == 'POST':
         answer = request.form['answer'].strip().lower()
-        expected = expected_answer.strip().lower()
         is_correct = is_answer_correct(answer, expected_answer)
 
         with get_connection() as conn:
@@ -117,10 +135,10 @@ def training_question(session_id, index):
                         UPDATE training_item
                         SET is_correct = %s, user_answer = %s
                         WHERE id = %s
-                        ''', (is_correct, answer, item_id))
+                        ''', (is_correct, answer.strip(), item_id))
             conn.commit()
 
-        flash(f"{'✅ Правильно!' if is_correct else f'❌ Неверно. Правильно: ' + expected}")
+        #flash(f"{'✅ Правильно!' if is_correct else f'❌ Неверно. Правильно: ' + expected}")
         return redirect(url_for('training.training_question', session_id=session_id, index=index + 1))
 
     return render_template('training/question.html', symbol=prompt, mode_id=mode_id, index=index + 1, total=len(items), label=label)
