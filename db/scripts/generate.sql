@@ -62,9 +62,9 @@ CREATE TABLE "learning_object" (
 	"pinyin" VARCHAR(50) NOT NULL,
 	"tone" SMALLINT,
 	"meaning" VARCHAR(255) NOT NULL,
+	"slug" VARCHAR(50) UNIQUE NOT NULL,
 	"strokes" INTEGER NOT NULL,
 	"description" VARCHAR(255),
-	"slug" VARCHAR(50) UNIQUE NOT NULL,
 	"group_id" INTEGER REFERENCES "radical_group" ("id")
 );
 
