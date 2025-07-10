@@ -26,7 +26,7 @@ def get_num_quan_group():
         rad_symbols = cur.execute('''
                                   SELECT 
                                   lo.symbol, 
-                                  lo.pinyin, 
+                                  lo.pinyin_base, 
                                   lo.meaning, 
                                   rg.name, 
                                   rg.slug 
