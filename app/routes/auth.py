@@ -99,20 +99,24 @@ def change():
 @login_required
 def profile():
     form = EditUserForm()
-
+    
     if request.method == 'GET':
         form.email.data = current_user.email
         form.first_name.data = current_user.first_name
         form.last_name.data = current_user.last_name
         form.date_of_birth.data = current_user.date_of_birth
         form.want_spam.data = getattr(current_user, 'want_spam', False)
+        form.role_id.data = current_user.role_id
     
     if form.validate_on_submit():
         with get_connection() as conn:
             cur = conn.cursor()
+            cur.execute('SELECT id, name FROM "role"')
+            roles = cur.fetchall()
+            form.role_id.choices = [(r[0], r[1]) for r in roles]
             cur.execute('''
                         UPDATE "user" 
-                        SET email=%s, first_name=%s, last_name=%s, date_of_birth=%s, want_spam=%s
+                        SET email=%s, first_name=%s, last_name=%s, date_of_birth=%s, want_spam=%s, role_id=%s
                         WHERE id=%s
                         ''',
                         (form.email.data,
@@ -120,6 +124,7 @@ def profile():
                          form.last_name.data,
                          form.date_of_birth.data,
                          form.want_spam.data,
+                         form.role_id.data,
                          current_user.id))
             flash('Профиль успешно изменен', 'success')
             return redirect(url_for('auth.profile'))
