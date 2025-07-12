@@ -64,7 +64,7 @@ def main():
         copy_table(conn, '"radical_group"', 'radical_group.csv', ['name', 'slug', 'description'])
         seed_users(conn)
         copy_table(conn, '"learning_object"', 'learning_object.csv',
-                   ['symbol', 'pinyin', 'tone', 'meaning', 'slug', 'strokes', 'description', 'group_id'])
+                   ['symbol', 'pinyin_base', 'tone', 'meaning', 'slug', 'strokes', 'description', 'group_id'])
         copy_table(conn, '"training_session"', 'training_session.csv',
                    ['user_id', 'mode_id', 'date_started', 'date_ended', 'result'])
         copy_table(conn, '"training_item"', 'training_item.csv', ['session_id', 'object_id'])
