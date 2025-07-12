@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 from flask import Blueprint, render_template, redirect, flash, url_for, request, abort
 from flask_login import current_user
-from app.forms import EditUserForm, AdminCreateUserForm
+from app.forms import AdminEditUserForm, AdminCreateUserForm
 from app.db import get_connection
 from functools import wraps
 
@@ -69,7 +69,7 @@ def add_user():
 @admin.route('/user/edit/<int:user_id>', methods=['GET', 'POST'])
 @admin_required
 def edit_user(user_id):
-    form = EditUserForm()
+    form = AdminEditUserForm()
     with get_connection() as conn:
         cur = conn.cursor()
 

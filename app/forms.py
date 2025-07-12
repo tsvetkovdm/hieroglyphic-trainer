@@ -5,7 +5,7 @@ from datetime import date
 
 def validate_birth(form, field):
     if field.data > date.today():
-        raise ValidationError("Дата рождения не может быть в будущем")
+        raise ValidationError("Некорректная дата рождения")
 
 class RegistrationForm(FlaskForm):
     username = StringField('Имя пользователя', [validators.Length(min=4, max=25)])
@@ -28,7 +28,7 @@ class AdminCreateUserForm(FlaskForm):
     last_name = StringField('Фамилия')
     date_of_birth = DateField('Дата рождения')
     want_spam = BooleanField('Отправлять новости?')
-    role_id = SelectField('Роль', coerce=int)  # Наполнишь в route
+    role_id = SelectField('Роль', coerce=int)
     submit = SubmitField('Создать пользователя')
 
 class LoginForm(FlaskForm):
@@ -43,5 +43,7 @@ class EditUserForm(FlaskForm):
     last_name = StringField('Фамилия', [validators.Length(min=1, max=100)])
     date_of_birth = DateField('Дата рождения', format='%Y-%m-%d', validators=[validators.InputRequired()])
     want_spam = BooleanField('Я согласен(-а) получать рекламную рассылку')
-    role_id = SelectField('Роль', coerce=int)
     submit = SubmitField('Сохранить')
+
+class AdminEditUserForm(EditUserForm):
+    role_id = SelectField('Роль', coerce=int)
