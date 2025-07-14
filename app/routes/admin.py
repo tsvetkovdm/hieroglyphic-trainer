@@ -7,12 +7,13 @@ from functools import wraps
 
 admin = Blueprint('admin', __name__)
 
+ADMIN_ROLE_ID = 1
 DEFAULT_ROLE_ID = 2
 
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if not current_user.is_authenticated or current_user.role_id != 1:  # предполагаем, что id=1 — это "admin"
+        if not current_user.is_authenticated or current_user.role_id != ADMIN_ROLE_ID: 
             abort(403)
         return f(*args, **kwargs)
     return decorated_function
