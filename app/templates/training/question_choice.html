@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Вопрос {{ index }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <a href="{{ url_for('training.start_training') }}" class="btn btn-outline-primary mb-3">
+        К выбору тренировки
+    </a>
+    <h4>Вопрос {{ index }} из {{ total }}</h4>
+
+    <div class="display-3 mb-3 text-center">{{ prompt }}</div>
+    {% if mode_id == 1 or mode_id == 6 %}
+        <div id="writer" style="width: 200px; height: 200px; margin-bottom: 20px; justify-content: center;" class="display-1"></div>
+    {% endif %}
+
+    <form method="POST">
+        <p><strong>{{ label }}</strong></p>
+        {% for option in options %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="opt{{ loop.index }}" value="{{ option }}" required>
+            <label class="form-check-label" for="opt{{ loop.index }}">
+                {{ option }}
+            </label>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary mt-3">Ответить</button>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/hanzi-writer.min.js') }}"></script>
+<script>
+    const writer = HanziWriter.create('writer', '{{ prompt }}', {
+        width: 200,
+        height: 200,
+        padding: 5,
+        showOutline: true,
+        showCharacter: false,
+        strokeAnimationSpeed: 2,
+        delayBetweenStrokes: 20,
+    });
+
+    writer.loopCharacterAnimation();
+</script>
+
+{% endblock %}

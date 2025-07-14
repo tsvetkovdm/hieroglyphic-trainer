@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Тренировка - Написание{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <a href="{{ url_for('training.start_training') }}" class="btn btn-outline-primary mb-3">
+        К выбору тренировки
+    </a>
+    <h4>Вопрос {{ index }} из {{ total }}</h4>
+
+    <h4>{{ label }}</h4>
+    <p style="text-align: center; font-size: large;">{{ prompt }}</p>
+
+    <div id="writer-container" style="width: 300px; height: 300px; margin: 20px auto; background-color: rgb(210, 210, 210); border-radius: 6%;"></div>
+
+    <form method="POST" id="manual-form" style="display: none;">
+        <label for="answer">Или введите ответ вручную:</label>
+        <input type="text" name="answer" class="form-control" required>
+        <button type="submit" class="btn btn-primary mt-2">Ответить</button>
+    </form>
+
+    <div class="mt-3 text-center">
+        <button id="toggle-input" class="btn btn-secondary">Ввести вручную</button>
+    </div>
+
+    <form id="hidden-form" method="POST" style="display: none;">
+        <input type="hidden" name="answer" id="hidden-answer">
+    </form>
+
+    <script src="{{ url_for('static', filename='js/hanzi-writer.min.js') }}"></script>
+    <script>
+        const correctChar = "{{ correct }}";
+
+        const writer = HanziWriter.create('writer-container', correctChar, {
+            width: 300,
+            height: 300,
+            showOutline: false,
+            showCharacter: false,
+            showHintAfterMisses: 1,
+            padding: 5,
+            strokeColor: '#111',
+        });
+
+        writer.quiz({
+            onComplete: function() {
+                document.getElementById('hidden-answer').value = correctChar;
+                document.getElementById('hidden-form').submit();
+            },
+            onMistake: function(strokeData) {
+                console.log('Ошибка на штрихе', strokeData);
+            }
+        });
+
+        document.getElementById('toggle-input').addEventListener('click', function() {
+            const manual = document.getElementById('manual-form');
+            if (manual.style.display === 'none') {
+                manual.style.display = 'block';
+                this.innerText = 'Вернуться к написанию';
+            } else {
+                manual.style.display = 'none';
+                this.innerText = 'Ввести вручную';
+            }
+        });
+    </script>
+</div>
+{% endblock %}
