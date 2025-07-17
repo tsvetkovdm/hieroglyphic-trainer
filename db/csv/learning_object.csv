@@ -1,132 +1,132 @@
 symbol;pinyin_base;tone;meaning;slug;strokes;description;group_id
-一;yi;1;единица;yi-one;1;;
-丨;gun;3;вертикаль;gun-line;1;;
-丶;zhu;3;точка;zhu-dot;1;;
-丿;pie;3;откидная;pie-slash;1;;
-乙;yi;3;и, второй;yi-second;1;;
-亅;jue;2;крюк;jue-hook;1;;
+一;yi;1;единица;yi-one;1;;11
+丨;gun;3;вертикаль;gun-line;1;;11
+丶;zhu;3;точка;zhu-dot;1;;11
+丿;pie;3;откидная;pie-slash;1;;11
+乙;yi;3;и, второй;yi-second;1;;11
+亅;jue;2;крюк;jue-hook;1;;11
 二;er;4;два;er-two;2;;
-亠;tou;2;крышка;tou-top;2;;
-人;ren;2;человек;ren-person;2;;
-儿;er;2;ноги;er-legs;2;;
+亠;tou;2;крышка;tou-top;2;;11
+人;ren;2;человек;ren-person;2;;1
+儿;er;2;ноги;er-legs;2;;1
 入;ru;4;входить;ru-enter;2;;
 八;ba;1;восемь;ba-eight;2;;
-冂;jiong;3;земли далеко за городом;jiong-outlying;2;;
-冖;mi;4;покрывало;mi-cover;2;;
-冫;bing;1;лед;bing-ice;2;;
-几;ji;1;столик;ji-table;2;;
-凵;kan;3;раскрытый рот;kan-mouth;2;;
-刀;dao;1;нож;dao-knife;2;;
-力;li;4;сила;li-force;2;;
-勹;bao;1;завертывать;bao-wrap;2;;
+冂;jiong;3;границы;jiong-borders;2;;11
+冖;mi;4;крышка;mi-lid;2;;11
+冫;bing;1;лед;bing-ice;2;;11
+几;ji;1;столик, несколько;ji-table-several;2;;13
+凵;kan;3;яма, раскрытый рот;kan-pit-mouth;2;;13
+刀;dao;1;нож;dao-knife;2;;7
+力;li;4;сила;li-force;2;;8
+勹;bao;1;обёртывать;bao-wrap;2;;8
 匕;bi;3;черпак;bi-scoop;2;;
-匚;fang;1;ящик;fang-box;2;;
-匸;xi;3;прятать;xi-hide;2;;
+匚;fang;1;ящик;fang-box;2;;2
+匸;xi;3;прятать;xi-hide;2;;12
 十;shi;2;десять;shi-ten;2;;
-卜;bu;3;гадание;bu-divine;2;;
-卩;jie;2;печать;jie-seal;2;;
-厂;han;4;обрыв;han-cliff;2;;
-厶;si;1;частный;si-private;2;;
-又;you;4;снова;you-again;2;;
-口;kou;3;рот;kou-mouth;3;;
-囗;wei;2;территория с границами;wei-enclosure;3;;
-土;tu;3;земля;tu-earth;3;;
-士;shi;4;ученый муж;shi-scholar;3;;
-夂;zhi;3;ходить;zhi-walk;3;;
-夊;sui;1;медленно идти;sui-slow-walk;3;;
-夕;xi;1;вечер;xi-evening;3;;
+卜;bu;3;гадать;bu-divine;2;;13
+卩;jie;2;печать;jie-seal;2;;13
+厂;han;4;обрыв;han-cliff;2;;12
+厶;si;1;частный;si-private;2;;13
+又;you;4;снова;you-again;2;;13
+口;kou;3;рот;kou-mouth;3;;1
+囗;wei;2;окружать, ограда;wei-fence;3;;12
+土;tu;3;земля;tu-earth;3;;4
+士;shi;4;воин;shi-warrior;3;;13
+夂;zhi;3;шагать вперёд, продвигаться;zhi-walk;3;;8
+夊;sui;1;медленно идти;sui-slow-walk;3;;8
+夕;xi;1;вечер;xi-evening;3;;5
 大;da;4;большой;da-big;3;;
 女;nü;3;женщина;nu-woman;3;;
-子;zi;3;ребенок;zi-child;3;;
-宀;mian;2;крыша;mian-roof;3;;
+子;zi;3;ребенок;zi-child;3;;8
+宀;mian;2;крыша;mian-roof;3;;2
 寸;cun;4;цунь, вершок;cun-cun;3;;
 小;xiao;3;маленький;xiao-small;3;;
-尢;wang;1;хилый;wang-weak;3;;
+尢;wang;1;хромой;wang-lame;3;;13
 尸;shi;1;труп;shi-corpse;3;;
-屮;che;4;росток;che-shoot;3;;
-山;shan;1;гора;shan-mountain;3;;
-川;chuan;1;река;chuan-river;3;;
+屮;che;4;росток;che-shoot;3;;6
+山;shan;1;гора;shan-mountain;3;;4
+川;chuan;1;река;chuan-river;3;;4
 工;gong;1;работа;gong-work;3;;
 己;ji;3;сам;ji-self;3;;
-巾;jin;1;платок;jin-towel;3;;
+巾;jin;1;платок;jin-towel;3;;2
 干;gan;1;сухой;gan-dry;3;;
 幺;yao;1;нитка;yao-thread;3;;
-广;guan;3;широкий;guan-broad;3;;
-廴;yin;3;тянуть;yin-draw;3;;
+广;yan;3;навес;yan-canopy;3;;2
+廴;yin;3;двигаться вперед, тащить;yin-drag;3;;
 廾;gong;3;две руки;gong-hands;3;;
 弋;yi;4;стрелять из лука;yi-shoot;3;;
-弓;gong;1;лук;gong-bow;3;;
-彐;ji;4;свиная голова;ji-pig-head;3;;
-彡;shan;1;волосы;shan-hair;3;;
-彳;chi;4;шаг;chi-step;3;;
-心;xin;1;сердце;xin-heart;4;;
-戈;ge;1;копье;ge-spear;4;;
-户;hu;4;двор;hu-door;4;;
-手;shou;3;рука;shou-hand;4;;
-支;zhi;1;ветка;zhi-branch;4;;
-攴;pu;1;ударять палкой;pu-strike;4;;
-文;wen;2;письмо;wen-writing;4;;
-斗;dou;3;ковш;dou-ladle;4;;
-斤;jin;1;топор;jin-axe;4;;
+弓;gong;1;лук;gong-bow;3;;7
+彐;ji;4;свиная голова;ji-pig-head;3;;14
+彡;shan;1;перья, длинная шерсть;shan-feathers-hair;3;;14
+彳;chi;4;шаг;chi-step;3;;14
+心;xin;1;сердце;xin-heart;4;;8
+戈;ge;1;копье;ge-spear;4;;14
+户;hu;4;двор;hu-door;4;;2
+手;shou;3;рука;shou-hand;4;;1
+支;zhi;1;ветка;zhi-branch;4;;14
+攴;pu;1;бить, ударять;pu-hit;4;;14
+文;wen;2;письмо;wen-writing;4;;8
+斗;dou;3;ковш;dou-ladle;4;;7
+斤;jin;1;топор;jin-axe;4;;7
 方;fang;1;квадрат;fang-square;4;;
-无;wu;2;не;wu-no;4;;
-日;ri;4;солнце;ri-sun;4;;
+无;wu;2;не, без;wu-no-without;4;;14
+日;ri;4;солнце;ri-sun;4;;4
 曰;yue;1;говорить;yue-speak;4;;
-月;yue;4;луна;yue-moon;4;;
-木;mu;4;дерево;mu-tree;4;;
-欠;qian;4;недоставать;qian-lack;4;;
+月;yue;4;луна;yue-moon;4;;5
+木;mu;4;дерево;mu-tree;4;;4
+欠;qian;4;недоставать;qian-lack;4;;8
 止;zhi;3;остановиться;zhi-stop;4;;
 歹;dai;3;плохой, злой;dai-evil;4;;
 殳;shu;1;пика;shu-axe;4;;
 毋;wu;2;не надо;wu-not;4;;
-比;bi;3;сравнивать;bi-compare;4;;
+比;bi;3;сравнивать;bi-compare;4;;8
 毛;mao;2;шерсть;mao-fur;4;;
 氏;shi;4;клан;shi-clan;4;;
-气;qi;4;пар;qi-air;4;;
-水;shui;3;вода;shui-water;4;;
-火;huo;3;огонь;huo-fire;4;;
-爪;zhao;3;когти;zhao-claw;4;;
-父;fu;4;отец;fu-father;4;;
-爻;yao;2;диаграммы;yao-trigram;4;;
-爿;pan, qiang;2;половина дерева;pan-half-tree;4;;
-片;pian;4;щепка;pian-chip;4;;
-牙;ya;2;зуб, клык;ya-tooth;4;;
-牛;niu;2;корова;niu-cattle;4;;
-犬;quan;3;собака;quan-dog;4;;
-玄;xuan;2;черный;xuan-dark;5;;
-玉;yu;4;нефрит;yu-jade;5;;
-瓜;gua;1;дыня;gua-melon;5;;
-瓦;wa;3;черепица;wa-tiles;5;;
+气;qi;4;пар;qi-air;4;;4
+水;shui;3;вода;shui-water;4;;4
+火;huo;3;огонь;huo-fire;4;;4
+爪;zhao;3;когти;zhao-claw;4;;3
+父;fu;4;отец;fu-father;4;;8
+爻;yao;2;воздействие, влияние;yao-impact;4;;8
+爿;pan, qiang;2;доска, кровать;pan-board-bed;4;;9
+片;pian;4;щепка;pian-chip;4;;9
+牙;ya;2;зуб, клык;ya-tooth;4;;7
+牛;niu;2;корова;niu-cattle;4;;3
+犬;quan;3;собака;quan-dog;4;;3
+玄;xuan;2;темный, тайный;xuan-dark;5;;10
+玉;yu;4;нефрит;yu-jade;5;;9
+瓜;gua;1;дыня;gua-melon;5;;6
+瓦;wa;3;черепица;wa-tiles;5;;9
 甘;gan;1;сладкий;gan-sweet;5;;
 生;sheng;1;жизнь;sheng-life;5;;
 用;yong;4;использовать;yong-use;5;;
-田;tian;2;поле;tian-field;5;;
-疋;pi;3;кусок ткани;pi-cloth;5;;
-疒;chuang;2;болезнь;chuang-disease;5;;
+田;tian;2;поле;tian-field;5;;2
+疋;pi;3;кусок ткани;pi-cloth;5;;9
+疒;chuang;2;болезнь;chuang-disease;5;;13
 癶;bo;4;ноги врозь;bo-feet;5;;
-白;bai;2;белый;bai-white;5;;
-皮;pi;2;кожица, кожа;pi-skin;5;;
-皿;min;3;сосуд;min-bowl;5;;
-目;mu;4;глаз;mu-eye;5;;
+白;bai;2;белый;bai-white;5;;5
+皮;pi;2;кожа, шкура;pi-skin;5;;9
+皿;min;3;сосуд;min-bowl;5;;2
+目;mu;4;глаз;mu-eye;5;;1
 矛;mao;2;копье;mao-spear;5;;
-矢;shi;3;стрела;shi-arrow;5;;
-石;shi;2;камень;shi-stone;5;;
+矢;shi;3;стрела;shi-arrow;5;;7
+石;shi;2;камень;shi-stone;5;;9
 示;shi;4;алтарь;shi-altar;5;;
-禸;rou;3;след зверя;rou-animal-track;5;;
-禾;he;2;злаки;he-crops;5;;
-穴;xue;4;пещера;xue-cave;5;;
+禸;rou;3;след зверя;rou-animal-track;5;;3
+禾;he;2;злаки;he-crops;5;;6
+穴;xue;4;пещера;xue-cave;5;;12
 立;li;4;стоять;li-stand;5;;
-竹;zhu;2;бамбук;zhu-bamboo;6;;
-米;mi;3;рис;mi-rice;6;;
+竹;zhu;2;бамбук;zhu-bamboo;6;;7
+米;mi;3;рис;mi-rice;6;;6
 纟;mi;4;нить, шелк;mi-silk;3;;
-缶;fou;3;амфора;fou-jar;6;;
+缶;fou;3;амфора;fou-jar;6;;2
 网;wang;3;сеть;wang-net;6;;
-羊;yang;2;баран;yang-sheep;6;;
+羊;yang;2;баран;yang-sheep;6;;3
 羽;yu;3;перо;yu-feather;6;;
 老;lao;3;старый;lao-old;6;;
 而;er;2;и, а;er-and;6;;
-耒;lei;3;плуг;lei-plow;6;;
-耳;er;3;ухо;er-ear;6;;
+耒;lei;3;плуг, соха;lei-plow;6;;7
+耳;er;3;ухо;er-ear;6;;1
 聿;yu;4;кисть;yu-brush;6;;
 肉;rou;4;мясо;rou-meat;6;;
 臣;chen;2;министр, чиновник;chen-minister;6;;
@@ -135,81 +135,81 @@ symbol;pinyin_base;tone;meaning;slug;strokes;description;group_id
 臼;jiu;4;ступка;jiu-mortar;6;;
 舌;she;2;язык;she-tongue;6;;
 舛;chuan;3;ошибка;chuan-error;6;;
-舟;zhou;1;лодка;zhou-boat;6;;
+舟;zhou;1;лодка;zhou-boat;6;;2
 艮;gen;4;гэнь, остановка;gen-still;6;;
-色;se;4;цвет;se-color;6;;
+色;se;4;цвет;se-color;6;;10
 艸;cao;3;трава;cao-grass;6;;
-虍;hu;1;тигр;hu-tiger;6;;
-虫;chong;2;насекомое;chong-insect;6;;
+虍;hu;1;тигр;hu-tiger;6;;3
+虫;chong;2;насекомое;chong-insect;6;;3
 血;xue;3;кровь;xue-blood;6;;
-行;xing;2;ходить;xing-walk;6;;
-衣;yi;1;одежда;yi-clothes;6;;
+行;xing;2;идти, ряд;xing-walk;6;;8
+衣;yi;1;одежда;yi-clothes;6;;7
 襾;ya;4;покрывать;ya-cover;6;;
 见;jian;4;видеть;jian-see;4;;
 角;jue;2;рог;jue-horn;7;;
-讠;yan;2;речь;yan-speech;2;;
+讠;yan;2;речь;yan-speech;2;;8
 谷;gu;3;долина;gu-valley;7;;
-豆;dou;4;боб;dou-bean;7;;
-豕;shi;3;свинья;shi-pig;7;;
+豆;dou;4;бобы;dou-beans;7;;6
+豕;shi;3;свинья;shi-pig;7;;3
 豸;zhi;4;пресмыкающееся;zhi-beast;7;;
 贝;bei;4;ракушка;bei-shell;4;;
-赤;chi;4;красный;chi-red;7;;
+赤;chi;4;красный;chi-red;7;;5
 走;zou;3;уходить;zou-go;7;;
-足;zu;2;нога;zu-foot;7;;
-身;shen;1;тело;shen-body;7;;
+足;zu;2;нога;zu-foot;7;;1
+身;shen;1;тело;shen-body;7;;1
 车;che;1;повозка;che-cart;4;;
 辛;xin;1;горький;xin-bitter;7;;
-辰;chen;2;утро;chen-morning;7;;
+辰;chen;2;время(циклический знак);chen-time;7;;5
 辵;chuo;4;ходить;chuo-walk;7;;
-邑;yi;4;город;yi-city;7;;
-酉;you;3;ю, десятый знак;you-wine;7;;
-釆;bian;4;различать;bian-discern;7;;
-里;li;3;ли, деревня;li-mile;7;;
-金;jin;1;золото;jin-gold;8;;
-长;chang;2;длинный;chang-long;4;;
-门;men;2;ворота, двери;men-gate;3;;
-阜;fu;4;холм;fu-hill;8;;
-隶;dai;4;слуга;dai-servant;8;;
+邑;yi;4;город;yi-city;7;;12
+酉;you;3;сосуд для вина;you-wine;7;;6
+釆;bian;4;различать, сортировать;bian-discern;7;;7
+里;li;3;верста, деревня;li-mile;7;;
+金;jin;1;металл, золото;jin-gold;8;;9
+长;chang;2;длинный;chang-long;4;;9
+门;men;2;ворота, двери;men-gate;3;;2
+阜;fu;4;холм;fu-hill;8;;12
+隶;li;4;достигать, поймать;li-catch;8;;12
 隹;zhui;1;птица с коротким хвостом;zhui-bird;8;;
-雨;yu;3;дождь;yu-rain;8;;
-青;qing;1;голубой, зеленый;qing-blue;8;;
-非;fei;1;не;fei-not;8;;
-面;mian;4;лицо;mian-face;9;;
-革;ge;2;шкура, кожа;ge-leather;9;;
-韦;wei;2;выделанная кожа;wei-leather;4;;
+雨;yu;3;дождь;yu-rain;8;;4
+青;qing;1;синий, зеленый;qing-blue;8;;5
+非;fei;1;не быть, отрицать;fei-not;8;;5
+面;mian;4;лицо;mian-face;9;;10
+革;ge;2;сырая кожа;ge-rawhide;9;;9
+韦;wei;2;выделанная кожа;wei-leather;4;;9
 韭;jiu;3;душистый лук;jiu-chives;9;;
-音;yin;1;звук;yin-sound;9;;
-页;ye;4;лист;ye-page;6;;
-风;feng;1;ветер;feng-wind;4;;
-飞;fei;1;летать;fei-fly;3;;
-食;shi;2;есть, еда;shi-food;9;;
-首;shou;3;голова;shou-head;9;;
-香;xiang;1;благоухающий;xiang-fragrant;9;;
-马;ma;3;лошадь;ma-horse;3;;
+音;yin;1;звук;yin-sound;9;;10
+页;ye;4;страница;ye-page;6;;10
+风;feng;1;ветер;feng-wind;4;;4
+飞;fei;1;летать;fei-fly;3;;10
+食;shi;2;еда, пища;shi-food;9;;6
+首;shou;3;голова;shou-head;9;;1
+香;xiang;1;аромат;xiang-aroma;9;;10
+马;ma;3;лошадь;ma-horse;3;;3
 骨;gu;3;кость;gu-bone;10;;
-高;gao;1;высокий;gao-high;10;;
+高;gao;1;высокий;gao-high;10;;10
 髟;biao;1;волосы;biao-hair;10;;
-斗;dou;4;драться;dou-fight;4;;
-鬯;chang;4;вино для жертвоприношений;chang-wine;10;;
-鬲;li;4;треножник;li-tripod;10;;
-鬼;gui;3;дух;gui-spirit;10;;
-鱼;yu;2;рыба;yu-fish;8;;
-鸟;niao;3;птица;niao-bird;5;;
+斗;dou;4;драться;dou-fight;4;;14
+鬯;chang;4;вино для жертвоприношений;chang-wine;10;;6
+鬲;li;4;треножник;li-tripod;10;;9
+鬼;gui;3;черт, призрак, дух;gui-spirit;10;;10
+鱼;yu;2;рыба;yu-fish;8;;3
+鸟;niao;3;птица;niao-bird;5;;3
 卤;lu;3;соль;lu-salt;7;;
-鹿;lu;4;олень;lu-deer;11;;
-麦;mai;4;пшеница;mai-wheat;7;;
-麻;ma;2;конопля;ma-hemp;11;;
-黃;huang;2;желтый;huang-yellow;12;;
-黍;shu;3;просо;shu-millet;12;;
-黑;hei;1;черный;hei-black;12;;
+鹿;lu;4;олень;lu-deer;11;;3
+麦;mai;4;пшеница;mai-wheat;7;;6
+麻;ma;2;конопля;ma-hemp;11;;6
+黃;huang;2;желтый;huang-yellow;12;;5
+黍;shu;3;просо;shu-millet;12;;6
+黑;hei;1;черный;hei-black;12;;5
 黹;zhi;3;вышивка;zhi-embroidery;12;;
 黾;min;3;лягушка;min-frog;8;;
 鼎;ding;3;треножник дин;ding-tripod;13;;
-鼓;gu;3;барабан;gu-drum;13;;
+鼓;gu;3;барабан;gu-drum;13;;10
 鼠;shu;3;мышь;shu-mouse;13;;
-鼻;bi;2;нос;bi-nose;14;;
+鼻;bi;2;нос;bi-nose;14;;1
 齐;qi;2;ровный, равный;qi-equal;6;;
 齿;chi;3;зубы;chi-teeth;8;;
-龙;long;2;дракон;long-dragon;5;;
-龟;gui;1;черепаха;gui-turtle;7;;
-龠;yue;4;флейта;yue-flute;17;;
+龙;long;2;дракон;long-dragon;5;;3
+龟;gui;1;черепаха;gui-turtle;7;;3
+龠;yue;4;флейта;yue-flute;17;;10
