@@ -110,7 +110,7 @@ def edit_user(user_id):
             flash('Пользователь обновлён', 'success')
             return redirect(url_for('admin.dashboard'))
 
-    return render_template('profile.html', form=form, title=f'Редактировать профиль {user_data[0]}', show_role = True)
+    return render_template('profile.html', form=form, title=f'Редактирование профиля {user_data[0]}', show_role = True)
 
 @admin.route('/user/delete/<int:user_id>', methods=['POST'])
 @admin_required
