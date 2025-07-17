@@ -4,6 +4,25 @@ from app.db import get_connection
 
 main = Blueprint('main', __name__)
 
+def add_accent(pinyin_base, tone):
+        tones = {
+            'a': ['ā', 'á', 'ǎ', 'à'],
+            'o': ['ō', 'ó', 'ǒ', 'ò'],
+            'e': ['ē', 'é', 'ě', 'è'],
+            'i': ['ī', 'í', 'ǐ', 'ì'],
+            'u': ['ū', 'ú', 'ǔ', 'ù'],
+            'ü': ['ǖ', 'ǘ', 'ǚ', 'ǜ']
+        }
+        for vowel in tones:
+            if vowel in pinyin_base:
+                idx = pinyin_base.find(vowel)
+                try:
+                    new_char = tones[vowel][tone - 1]
+                    return pinyin_base[:idx] + new_char + pinyin_base[idx+1:]
+                except IndexError:
+                    return pinyin_base
+        return pinyin_base
+
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -17,23 +36,22 @@ def test_connection():
         flash(f"Ошибка подключения к БД: {e}", "danger")
     return redirect(url_for('main.index'))
 
-@main.route('/numbers-quantities')
+@main.route('/radicals')
 @login_required
-def get_num_quan_group():
-    rad_group = 'numbers-quantities'
+def radicals():
     with get_connection() as conn:
         cur = conn.cursor()
-        rad_symbols = cur.execute('''
-                                  SELECT 
-                                  lo.symbol, 
-                                  lo.pinyin_base, 
-                                  lo.meaning, 
-                                  rg.name, 
-                                  rg.slug 
-                                  FROM "learning_object" AS lo 
-                                  INNER JOIN "radical_group" AS rg ON rg.id = lo.group_id 
-                                  WHERE rg.slug LIKE %s
-                                  ''', (rad_group,)).fetchall()
-        
-        return render_template('radicals.html', title='Радикалы группы "Числа и количество"',
-                               rad_symbols=rad_symbols)
+        cur.execute('''
+                    SELECT lo.symbol, lo.pinyin_base, lo.tone, lo.meaning, lo.strokes, rg.name
+                    FROM "learning_object" as lo
+                    JOIN "radical_group" rg ON lo.group_id = rg.id
+                    ''')
+        rows = cur.fetchall()
+        updated_rows = [
+            (symbol, add_accent(pinyin_base, tone), meaning, strokes, name)
+            for (
+                symbol, pinyin_base, tone, meaning, strokes, name
+            ) in rows
+        ]
+        return render_template('radicals.html', title='Радикалы',
+                               rad_symbols=updated_rows)

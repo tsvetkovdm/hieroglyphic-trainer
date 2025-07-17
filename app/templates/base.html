@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">{{ render_nav_item('main.index', 'Главная') }}</li>
-                <li class="nav-item">{{ render_nav_item('main.get_num_quan_group', 'Радикалы группы ЦиК') }}</li>
+                <li class="nav-item">{{ render_nav_item('main.radicals', 'Радикалы') }}</li>
                 <li class="nav-item">{{ render_nav_item('training.start_training', 'Начать тренировку') }}</li>
                 {% if current_user.is_authenticated %}
                     <li class="nav-item">{{ render_nav_item('training.history', 'История моих тренировок') }}</li>
