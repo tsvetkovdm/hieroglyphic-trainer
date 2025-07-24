@@ -40,7 +40,7 @@ def add_accent(pinyin_base, tone):
                     return pinyin_base
         return pinyin_base
 
-@training.route('/start/', methods=['GET','POST'])
+@training.route('/start', methods=['GET','POST'])
 @login_required
 def start_training():
     with get_connection() as conn:
