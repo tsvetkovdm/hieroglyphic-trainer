@@ -36,15 +36,14 @@ def test_connection():
         flash(f"Ошибка подключения к БД: {e}", "danger")
     return redirect(url_for('main.index'))
 
-@main.route('/radicals')
-@login_required
+@main.route('/radicals', methods=['GET'])
 def radicals():
     with get_connection() as conn:
         cur = conn.cursor()
         cur.execute('''
                     SELECT lo.symbol, lo.pinyin_base, lo.tone, lo.meaning, lo.strokes, rg.name
                     FROM "learning_object" as lo
-                    JOIN "radical_group" rg ON lo.group_id = rg.id
+                    LEFT JOIN "radical_group" rg ON lo.group_id = rg.id
                     ''')
         rows = cur.fetchall()
         updated_rows = [
