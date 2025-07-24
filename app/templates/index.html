@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-4">
-    {% if current_user.is_authenticated %}
-        <h2>Добро пожаловать, {{ current_user.username }}!</h2>
-        <p>Вы вошли в систему. Здесь может быть ваш персональный кабинет или функции.</p>
-        <!-- Пример дополнительного функционала -->
-        <a class="btn btn-primary" href="{{ url_for('auth.logout') }}">Выйти</a>
-    {% else %}
-        <h2>Добро пожаловать!</h2>
-        <p>Пожалуйста, <a href="{{ url_for('auth.login') }}">войдите</a> или <a href="{{ url_for('auth.register') }}">зарегистрируйтесь</a>, чтобы продолжить.</p>
-    {% endif %}
+<div class="hero container">
+    <div class="hero--info">
+        {% if current_user.is_authenticated %}
+            <h1>Практикуйте написание китайских иероглифов</h1>
+            <p>Тренажер, который поможет тебе легко изучать написание китайских иероглифов. Просто следуй за подсказками на экране, и ты быстро научишься писать иероглифы правильно и красиво.</p>
+            <div class="btn-group">
+                <a href="/radicals">Начать</a>
+            </div>
+        {% else %}
+            <h1>Практикуйте написание китайских иероглифов</h1>
+            <p>Тренажер, который поможет тебе легко изучать написание китайских иероглифов. Просто следуй за подсказками на экране, и ты быстро научишься писать иероглифы правильно и красиво.</p>
+            <div class="btn-group">
+                <a href="/radicals">Начать</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="hero-logo">
+        <img src="{{url_for('static', filename='img/hero-logo.png')}}" width="524" height="401" alt="">
+    </div>
 </div>
 {% endblock %}

@@ -1,39 +1,24 @@
-{% extends "base.html"%}
-
+{% extends 'base.html' %}
+{% block body_class %}radicals{% endblock %}
 {% block content %}
-    <div class="container mt-4">
-        <h2>{{ title }}</h2>
-        {% if rad_symbols|length == 0 %}
-            <p>Радикалов не найдено.</p>
-        {% else %}
-            <div class="card shadow rounded-2">
-                <div class="card-body p-2">
-                    <table class="table table-hover mb-0 align-middle">
-                        <thead>
-                            <tr>
-                                <th>№</th>
-                                <th>Символ</th>
-                                <th>Пиньинь</th>
-                                <th>Значение</th>
-                                <th>Количество черт</th>
-                                <th>Название группы</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for rad_symbol in rad_symbols %}
-                            <tr>
-                                <td>{{ loop.index }}</td>
-                                <td>{{ rad_symbol[0] }}</td>
-                                <td>{{ rad_symbol[1] }}</td>
-                                <td>{{ rad_symbol[2] }}</td>
-                                <td>{{ rad_symbol[3] }}</td>
-                                <td>{{ rad_symbol[4] }}</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+<div class="radicals container">
+    <h2>{{ title }}</h2>
+    {% if rad_symbols|length == 0 %}
+        <p>Радикалов не найдено.</p>
+    {% else %}
+        <div class="cards">
+            {% for rad_symbol in rad_symbols %}
+            <div class="card">
+                <div class="card-center">
+                    <div class="card-top">№ {{ loop.index }}</div>
+                    <h1>{{ rad_symbol[0] }}</h1>
+                    <p class="pinyin">{{ rad_symbol[1] }}</p>
+                    <p class="meaning">{{ rad_symbol[2] }}</p>
+                    <div class="card-bottom">черт: {{ rad_symbol[3] }}</div>
                 </div>
             </div>
-        {% endif %}
-    </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

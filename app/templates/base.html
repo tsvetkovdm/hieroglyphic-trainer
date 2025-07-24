@@ -1,57 +1,54 @@
-{% from 'bootstrap5/nav.html' import render_nav_item %}
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block styles %}
-        {{ bootstrap.load_css() }}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" >
     <title>{{ title if title else 'Добро пожаловать' }}</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">{{ render_nav_item('main.index', 'Главная') }}</li>
-                <li class="nav-item">{{ render_nav_item('main.radicals', 'Радикалы') }}</li>
-                <li class="nav-item">{{ render_nav_item('training.start_training', 'Начать тренировку') }}</li>
-                {% if current_user.is_authenticated %}
-                    <li class="nav-item">{{ render_nav_item('training.history', 'История моих тренировок') }}</li>
-                    {% if current_user.is_admin %}
-                        <li class="nav-item">{{ render_nav_item('main.test_connection', 'Проверка БД') }}</li>
-                        <li class="nav-item">{{ render_nav_item('admin.dashboard', 'Админ') }}</li>
+<body class="{% block body_class %}default{% endblock %}">
+    <header>
+        <div class="container">
+            <a href="/" class="logo"><img src="{{url_for('static', filename='img/logo.png')}}" width="107" height="32" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="/"><img src="{{url_for('static', filename='img/home.png')}}" width="18" height="18" alt="">Главная</a></li>
+                    <li><a href="/radicals"><img src="{{url_for('static', filename='img/radical-button.png')}}" width="18" height="18" alt="">Радикалы</a></li>
+                    <li><a href="/training/start"><img src="{{url_for('static', filename='img/play-button.png')}}" width="18" height="18" alt="">Тренировка</a></li>
+                    {% if current_user.is_authenticated %}
+                        <!--<li><a href="/training/history">История моих тренировок</a></li>-->
+                        {% if current_user.is_admin %}
+                            <!--<li><a href="/main/testdb">Проверка БД</a></li>-->
+                            <li><a href="/admin">Админ</a></li>
+                        {% endif %}
+                        <li><a href="/auth/profile"><img src="{{url_for('static', filename='img/profile-user.png')}}" width="18" height="18" alt="">Профиль</a></li>
+                    {% else %}
+                        <li><a href="/auth/login"><img src="{{url_for('static', filename='img/profile-user.png')}}" width="18" height="18" alt="">Вход</a></li>
                     {% endif %}
-                    <li class="nav-item">{{ render_nav_item('auth.profile', 'Профиль') }}</li>
-                    <li class="nav-item">{{ render_nav_item('auth.change', 'Сменить пользователя') }}</li>
-                    <li class="nav-item">{{ render_nav_item('auth.logout', 'Выход') }}</li>
-                {% else %}
-                    <li class="nav-item">{{ render_nav_item('auth.register', 'Регистрация') }}</li>
-                    <li class="nav-item">{{ render_nav_item('auth.login', 'Авторизация') }}</li>
-                {% endif %}
-            </ul>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="container mt-4">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
+    <main class="page-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
 
-    {% block content %}{% endblock %}
-
-    {% block scripts %}
-        {{ bootstrap.load_js() }}
-    {% endblock %}
+    <footer>
+        <p>&copy; 2025 Hieroglyphic Trainer. Все права защищены.</p>
+    </footer>
 </body>
 </html>
