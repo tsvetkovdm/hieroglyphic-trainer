@@ -126,4 +126,4 @@ def profile():
             flash('Профиль успешно изменен', 'success')
             return redirect(url_for('auth.profile'))
 
-    return render_template('profile.html', form=form, title=f'Редактирование профиля {current_user.username}', show_role=False)
+    return render_template('profile.html', form=form, title=f'Мой профиль', show_role=False)
