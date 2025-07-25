@@ -3,18 +3,20 @@
 {% block title %}Выбор режима{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
   <h2 class="mb-4">Выбери режим тренировки</h2>
-  <form method="post" class="card p-4 shadow-sm">
+  <form method="post" class="selector p-4 shadow-sm">
     <div class="mb-3">
       <label for="mode" class="form-label">Режим:</label>
       <select name="mode_id" id="mode" class="form-select">
         {% for id, name in modes %}
           <option value="{{ id }}">{{ name }}</option>
-        {% endfor %}
+        {% endfor %} 
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Начать тренировку</button>
   </form>
 </div>
 {% endblock %}
+
