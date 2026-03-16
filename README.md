@@ -1,2 +1,37 @@
-# hieroglyphic-trainer
-This is a project to teach Chinese characters.
+# Hieroglyphic Trainer
+
+**Hieroglyphic Trainer** — учебное Flask-приложение для тренировки китайских иероглифов.  
+Поддерживает регистрацию и вход, несколько режимов тренировки, историю попыток и базовую админ-панель.
+
+## Что умеет
+
+- регистрация, вход и редактирование профиля;
+- запуск тренировок по иероглифам;
+- проверка ответов по пиньиню и значению;
+- история тренировочных сессий;
+- просмотр групп иероглифов;
+- админ-панель для управления пользователями.
+
+## Стек
+
+- Python
+- Flask
+- Flask-Login
+- Flask-WTF
+- Bootstrap-Flask
+- PostgreSQL
+- psycopg
+
+## Структура проекта
+
+```text
+app/
+  routes/         # роуты: main, auth, admin, training
+  templates/      # HTML-шаблоны
+  static/         # JS и статика
+db/
+  csv/            # исходные данные для заполнения БД
+  scripts/        # SQL-скрипты создания схемы
+seed.py           # заполнение БД тестовыми данными
+requirements.txt
+hieroglyphic-trainer.py
