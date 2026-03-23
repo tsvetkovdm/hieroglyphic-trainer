@@ -15,12 +15,9 @@
 ## Стек
 
 - Python
-- Flask
-- Flask-Login
-- Flask-WTF
-- Bootstrap-Flask
 - PostgreSQL
-- psycopg
+- Flask
+- Bootstrap
 
 ## Структура проекта
 
